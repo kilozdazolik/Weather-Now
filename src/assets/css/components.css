@@ -1,3 +1,5 @@
+@import url("base.css");
+
 /* Container */
 .dropdown-container {
   position: relative;
@@ -195,13 +197,15 @@
 .current-weather-card {
   background-image: url("../images/bg-today-large.svg");
   background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 250px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: var(--spacing-300) var(--spacing-1000);
-
+  border-radius: var(--radius-20);
   margin: 0;
 }
 
@@ -274,7 +278,10 @@
   padding: var(--spacing-300);
   border-radius: var(--radius-20);
   position: relative;
-  display: inline-block;
+
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }
 
 .sidebar-header {

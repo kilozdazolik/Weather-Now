@@ -1,7 +1,10 @@
 @import url("base.css");
+
 .container {
-  width: 80%;
+  width: 90%;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 var(--spacing-200);
 }
 
 nav {
@@ -12,6 +15,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-200);
 }
 
 .section-dashboard {
@@ -24,6 +29,7 @@ header {
   gap: var(--spacing-400);
   align-items: start;
 }
+
 .main-content {
   display: flex;
   flex-direction: column;
@@ -43,23 +49,110 @@ header {
   gap: var(--spacing-200);
 }
 
-@media (max-width: 768px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .highlights-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .daily-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 /* Sidebar */
 .sidebar-list {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-200);
+}
+
+/* Responsive breakpoints */
+
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+  .container {
+    width: 92%;
+  }
+
+  .daily-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .container {
+    width: 94%;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .daily-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .daily-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .container {
+    width: 96%;
+    padding: 0 var(--spacing-100);
+  }
+
+  nav {
+    margin-top: var(--spacing-400);
+  }
+
+  .section-dashboard {
+    margin-top: var(--spacing-400);
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    gap: var(--spacing-300);
+  }
+
+  .main-content {
+    gap: var(--spacing-300);
+  }
+
+  .highlights-grid {
+    gap: var(--spacing-200);
+    margin-bottom: var(--spacing-300);
+  }
+
+  .daily-grid {
+    gap: var(--spacing-150);
+  }
 }
