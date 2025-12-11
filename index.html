@@ -32,17 +32,19 @@
                 Switch to Imperial
               </button>
               <div class="unit-box">
-                <p class="unit-box-text">Temperature</p>
+                <p class="text-preset text-preset-8 unit-box-text">
+                  Temperature
+                </p>
                 <ul class="unit-list">
                   <li
-                    class="unit-list-item active"
+                    class="text-preset text-preset-7 unit-list-item active"
                     data-type="temperature"
                     data-value="celsius"
                   >
                     Celsius (°C)
                   </li>
                   <li
-                    class="unit-list-item"
+                    class="text-preset text-preset-7 unit-list-item"
                     data-type="temperature"
                     data-value="fahrenheit"
                   >
@@ -51,17 +53,19 @@
                 </ul>
               </div>
               <div class="unit-box">
-                <p class="unit-box-text">Wind Speed</p>
+                <p class="text-preset text-preset-8 unit-box-text">
+                  Wind Speed
+                </p>
                 <ul class="unit-list">
                   <li
-                    class="unit-list-item active"
+                    class="text-preset text-preset-7 unit-list-item active"
                     data-type="wind-speed"
                     data-value="kmh"
                   >
                     km/h
                   </li>
                   <li
-                    class="unit-list-item"
+                    class="text-preset text-preset-7 unit-list-item"
                     data-type="wind-speed"
                     data-value="mph"
                   >
@@ -70,17 +74,19 @@
                 </ul>
               </div>
               <div class="unit-box">
-                <p class="unit-box-text">Precipitation</p>
+                <p class="text-preset text-preset-8 unit-box-text">
+                  Precipitation
+                </p>
                 <ul class="unit-list">
                   <li
-                    class="unit-list-item active"
+                    class="text-preset text-preset-7 unit-list-item active"
                     data-type="precipitation"
                     data-value="mm"
                   >
                     Millimeters (mm)
                   </li>
                   <li
-                    class="unit-list-item"
+                    class="text-preset text-preset-7 unit-list-item"
                     data-type="precipitation"
                     data-value="in"
                   >
@@ -92,6 +98,225 @@
           </div>
         </header>
       </nav>
+      <h1 class="text-preset text-preset-2 primary-heading">
+        How's the sky looking today?
+      </h1>
+
+      <main>
+        <section class="section-search">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            class="text-preset text-preset-5-medium input-search"
+            placeholder="Search for a place..."
+          />
+          <button class="text-preset text-preset-5-medium button-search">
+            Search
+          </button>
+        </section>
+
+        <section class="section-dashboard">
+          <div class="dashboard-grid">
+            <div class="main-content">
+              <div class="current-weather-card">
+                <div class="left">
+                  <p class="text-preset text-preset-4 weather-card_location">
+                    Berlin, Germany
+                  </p>
+                  <p class="text-preset text-preset-6 weather-card_date">
+                    Tuesday, Aug 5, 2025
+                  </p>
+                </div>
+                <div class="right">
+                  <img
+                    class="weather-card_icon"
+                    src="./src/assets/images/icon-sunny.webp"
+                    alt="weather icon"
+                    srcset=""
+                  />
+                  <p class="text-preset text-preset-1 weather-card_temperature">
+                    20°C
+                  </p>
+                </div>
+              </div>
+
+              <div class="highlights-grid">
+                <div class="card">Feels Like</div>
+                <div class="card">Humidity</div>
+                <div class="card">Wind</div>
+                <div class="card">Precipitation</div>
+              </div>
+
+              <div class="daily-grid">
+                <div class="day-card">Tue</div>
+                <div class="day-card">Wed</div>
+                <div class="day-card">Thu</div>
+                <div class="day-card">Fri</div>
+                <div class="day-card">Sat</div>
+                <div class="day-card">Sun</div>
+                <div class="day-card">Mon</div>
+              </div>
+            </div>
+            <div class="sidebar">
+              <div class="sidebar-header">
+                <p class="text-preset text-preset-5">Hourly forecast</p>
+
+                <div class="sidebar-dropdown-container">
+                  <button class="text-preset text-preset-7 sidebar-button">
+                    Tuesday
+                    <img
+                      class="icon-dropdown"
+                      src="./src/assets/images/icon-dropdown.svg"
+                      alt="arrow"
+                    />
+                  </button>
+
+                  <div class="dropdown-sidebar">
+                    <ul class="dropdown-sidebar-list">
+                      <li
+                        class="dropdown-sidebar-list-item text-preset text-preset-7 active"
+                      >
+                        Monday
+                      </li>
+                      <li
+                        class="dropdown-sidebar-list-item text-preset text-preset-7"
+                      >
+                        Tuesday
+                      </li>
+                      <li
+                        class="dropdown-sidebar-list-item text-preset text-preset-7"
+                      >
+                        Wednesday
+                      </li>
+                      <li
+                        class="dropdown-sidebar-list-item text-preset text-preset-7"
+                      >
+                        Thursday
+                      </li>
+                      <li
+                        class="dropdown-sidebar-list-item text-preset text-preset-7"
+                      >
+                        Friday
+                      </li>
+                      <li
+                        class="dropdown-sidebar-list-item text-preset text-preset-7"
+                      >
+                        Saturday
+                      </li>
+                      <li
+                        class="dropdown-sidebar-list-item text-preset text-preset-7"
+                      >
+                        Sunday
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-content">
+                <ul class="sidebar-list">
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                  <li class="sidebar-list-item">
+                    <div class="sidebar-list-item_left">
+                      <img
+                        class="sidebar-list-item_icon"
+                        src="./src/assets/images/icon-storm.webp"
+                        alt="weather icon"
+                        srcset=""
+                      />
+                      <p class="text-preset text-preset-7">1 AM</p>
+                    </div>
+                    <p class="text-preset text-preset-7">18°C</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

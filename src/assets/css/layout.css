@@ -13,3 +13,47 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+.section-dashboard {
+  margin-top: var(--spacing-600);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.daily-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .daily-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Sidebar */

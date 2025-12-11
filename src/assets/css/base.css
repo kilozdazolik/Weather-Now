@@ -103,7 +103,7 @@ body {
 
   --preset-5-medium-size: 2rem;
   --preset-5-medium-line: 120%;
-  --preset-5-medium-letter-spacing: -0.2rem;
+  --preset-5-medium-letter-spacing: 0rem;
   --preset-5-medium-weight: medium;
   --preset-5-medium-style: normal;
   --preset-5-medium-font: "DM Sans", sans-serif;
