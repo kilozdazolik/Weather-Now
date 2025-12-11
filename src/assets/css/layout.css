@@ -21,25 +21,26 @@ header {
 .dashboard-grid {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 20px;
+  gap: var(--spacing-400);
   align-items: start;
 }
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--spacing-400);
 }
 
 .highlights-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: var(--spacing-300);
+  margin-bottom: var(--spacing-400);
 }
 
 .daily-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
+  gap: var(--spacing-200);
 }
 
 @media (max-width: 768px) {
@@ -57,3 +58,8 @@ header {
 }
 
 /* Sidebar */
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+}

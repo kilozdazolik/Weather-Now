@@ -225,6 +225,49 @@
   height: auto;
 }
 
+/* Highlights */
+.card {
+  background-color: var(--neutral-800);
+  padding: var(--spacing-250);
+  border-radius: var(--radius-20);
+  border: 2px solid var(--neutral-600);
+}
+.card-info {
+  color: var(--neutral-200);
+  margin-bottom: var(--spacing-300);
+}
+
+/* Weather Details */
+
+.day-card {
+  background-color: var(--neutral-800);
+  padding: var(--spacing-200) var(--spacing-125);
+  border: 1px solid var(--neutral-600);
+  border-radius: var(--radius-12);
+  text-align: center;
+}
+
+.day-card_day {
+  margin-bottom: var(--spacing-200);
+}
+
+.day-card_icon {
+  width: 6rem;
+  height: auto;
+  margin-bottom: var(--spacing-200);
+}
+
+.day-card_temperatures {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-100);
+  margin-top: var(--spacing-100);
+}
+
+.day_card_temp-min {
+  color: var(--neutral-200);
+}
+
 /* Sidebar */
 .sidebar {
   background-color: var(--neutral-800);
@@ -264,9 +307,9 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-200);
-  padding: var(--spacing-200) var(--spacing-400);
-  margin-bottom: var(--spacing-200);
-  background-color: var(--neutral-800);
+  padding: var(--spacing-150) var(--spacing-125);
+  background-color: var(--neutral-700);
+  border: 1px solid var(--neutral-600);
   cursor: pointer;
   border-radius: var(--radius-8);
 }
@@ -274,10 +317,11 @@
 .sidebar-list-item_left {
   display: flex;
   align-items: center;
+  gap: var(--spacing-100);
 }
 
 .sidebar-list-item_icon {
-  width: 5rem;
+  width: 4rem;
   height: auto;
 }
 
