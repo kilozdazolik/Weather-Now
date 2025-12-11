@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  background-color: var(--neutral-900);
+  color: var(--neutral-0);
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf")
+    format("truetype-variations");
+  font-weight: 200 900; /* változó font tartomány */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* COLOR VARIABLES START*/
+  /* NEUTRAL COLORS */
+  --neutral-900: #02012c;
+  --neutral-800: #262540;
+  --neutral-700: #302f4a;
+  --neutral-600: #3c3b5e;
+  --neutral-300: #acacb7;
+  --neutral-200: #d4d3d9;
+  --neutral-0: #ffffff;
+
+  /* ORANGE COLORS */
+  --orange-500: #ff820a;
+
+  /* BLUE COLORS */
+  --blue-500: #4658d9;
+  --blue-700: #2b1b9c;
+  /*-- COLOR VARIABLES END --*/
+
+  /* TEXT PRESET START*/
+  --preset-1-size: 9.6rem;
+  --preset-1-line: 100%;
+  --preset-1-letter-spacing: -0.2rem;
+  --preset-1-weight: 600;
+  --preset-1-style: italic;
+  --preset-1-font: "DM Sans", sans-serif;
+
+  --preset-2-size: 5.2rem;
+  --preset-2-line: 120%;
+  --preset-2-letter-spacing: 0rem;
+  --preset-2-weight: bold;
+  --preset-2-style: normal;
+  --preset-2-font: "Bricolage Grotesque", sans-serif;
+
+  --preset-3-size: 3.2rem;
+  --preset-3-line: 100%;
+  --preset-3-letter-spacing: 0rem;
+  --preset-3-weight: light;
+  --preset-3-style: normal;
+  --preset-3-font: "DM Sans", sans-serif;
+
+  --preset-4-size: 2.8rem;
+  --preset-4-line: 120%;
+  --preset-4-letter-spacing: 0rem;
+  --preset-4-weight: bold;
+  --preset-4-style: normal;
+  --preset-4-font: "DM Sans", sans-serif;
+
+  --preset-5-size: 2rem;
+  --preset-5-line: 120%;
+  --preset-5-letter-spacing: 0rem;
+  --preset-5-weight: 600;
+  --preset-5-style: normal;
+  --preset-5-font: "DM Sans", sans-serif;
+
+  --preset-5-medium-size: 2rem;
+  --preset-5-medium-line: 120%;
+  --preset-5-medium-letter-spacing: -0.2rem;
+  --preset-5-medium-weight: medium;
+  --preset-5-medium-style: normal;
+  --preset-5-medium-font: "DM Sans", sans-serif;
+
+  --preset-6-size: 1.8rem;
+  --preset-6-line: 120%;
+  --preset-6-letter-spacing: 0rem;
+  --preset-6-weight: medium;
+  --preset-6-style: normal;
+  --preset-6-font: "DM Sans", sans-serif;
+
+  --preset-7-size: 1.6rem;
+  --preset-7-line: 120%;
+  --preset-7-letter-spacing: 0rem;
+  --preset-7-weight: medium;
+  --preset-7-style: normal;
+  --preset-7-font: "DM Sans", sans-serif;
+
+  --preset-8-size: 1.4rem;
+  --preset-8-line: 120%;
+  --preset-8-letter-spacing: 0rem;
+  --preset-8-weight: medium;
+  --preset-8-style: normal;
+  --preset-8-font: "DM Sans", sans-serif;
+  /* TEXT PRESET END*/
+
+  /* SPACING VARIABLES START */
+  --spacing-0: 0;
+  --spacing-025: 0.2rem; /* 2px */
+  --spacing-050: 0.4rem; /* 4px */
+  --spacing-075: 0.6rem; /* 6px */
+  --spacing-100: 0.8rem; /* 8px */
+  --spacing-125: 1rem; /* 10px */
+  --spacing-150: 1.2rem; /* 12px */
+  --spacing-200: 1.6rem; /* 16px */
+  --spacing-250: 2rem; /* 20px */
+  --spacing-300: 2.4rem; /* 24px */
+  --spacing-400: 3.2rem; /* 32px */
+  --spacing-500: 4rem; /* 40px */
+  --spacing-600: 4.8rem; /* 48px */
+  --spacing-800: 6.4rem; /* 64px */
+  --spacing-1000: 8rem; /* 80px */
+  --spacing-1200: 9.6rem; /* 96px */
+  --spacing-1400: 11.2rem; /* 112px */
+  --spacing-1600: 12.8rem; /* 128px */
+  --spacing-1800: 14rem; /* 140px */
+  /* SPACING VARIABLES END */
+
+  /* BORDER RADIUS VARIABLES START */
+  --radius-0: 0;
+  --radius-4: 0.4rem; /* 4px */
+  --radius-6: 0.6rem; /* 6px */
+  --radius-8: 0.8rem; /* 8px */
+  --radius-10: 1rem; /* 10px */
+  --radius-12: 1.2rem; /* 12px */
+  --radius-16: 1.6rem; /* 16px */
+  --radius-20: 2rem; /* 20px */
+  --radius-24: 2.4rem; /* 24px */
+  --radius-full: 99.9rem; /* 999px - a "pill" alakú gombokhoz */
+  /* BORDER RADIUS VARIABLES END */
+}
+
+.text-preset {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing, 0);
+  font-weight: var(--font-weight);
+  font-style: var(--font-style, normal);
+  font-family: var(--font-family);
+}
+
+.text-preset-1 {
+  --font-size: var(--preset-1-size);
+  --line-height: var(--preset-1-line);
+  --letter-spacing: var(--preset-1-letter-spacing);
+  --font-weight: var(--preset-1-weight);
+  --font-style: var(--preset-1-style);
+  --font-family: var(--preset-1-font);
+}
+
+.text-preset-2 {
+  --font-size: var(--preset-2-size);
+  --line-height: var(--preset-2-line);
+  --letter-spacing: var(--preset-2-letter-spacing);
+  --font-weight: var(--preset-2-weight);
+  --font-style: var(--preset-2-style);
+  --font-family: var(--preset-2-font);
+}
+
+.text-preset-3 {
+  --font-size: var(--preset-3-size);
+  --line-height: var(--preset-3-line);
+  --letter-spacing: var(--preset-3-letter-spacing);
+  --font-weight: var(--preset-3-weight);
+  --font-style: var(--preset-3-style);
+  --font-family: var(--preset-3-font);
+}
+
+.text-preset-4 {
+  --font-size: var(--preset-4-size);
+  --line-height: var(--preset-4-line);
+  --letter-spacing: var(--preset-4-letter-spacing);
+  --font-weight: var(--preset-4-weight);
+  --font-style: var(--preset-4-style);
+  --font-family: var(--preset-4-font);
+}
+
+.text-preset-5 {
+  --font-size: var(--preset-5-size);
+  --line-height: var(--preset-5-line);
+  --letter-spacing: var(--preset-5-letter-spacing);
+  --font-weight: var(--preset-5-weight);
+  --font-style: var(--preset-5-style);
+  --font-family: var(--preset-5-font);
+}
+
+.text-preset-5-medium {
+  --font-size: var(--preset-5-medium-size);
+  --line-height: var(--preset-5-medium-line);
+  --letter-spacing: var(--preset-5-medium-letter-spacing);
+  --font-weight: var(--preset-5-medium-weight);
+  --font-style: var(--preset-5-medium-style);
+  --font-family: var(--preset-5-medium-font);
+}
+
+.text-preset-6 {
+  --font-size: var(--preset-6-size);
+  --line-height: var(--preset-6-line);
+  --letter-spacing: var(--preset-6-letter-spacing);
+  --font-weight: var(--preset-6-weight);
+  --font-style: var(--preset-6-style);
+  --font-family: var(--preset-6-font);
+}
+
+.text-preset-7 {
+  --font-size: var(--preset-7-size);
+  --line-height: var(--preset-7-line);
+  --letter-spacing: var(--preset-7-letter-spacing);
+  --font-weight: var(--preset-7-weight);
+  --font-style: var(--preset-7-style);
+  --font-family: var(--preset-7-font);
+}
+
+.text-preset-8 {
+  --font-size: var(--preset-8-size);
+  --line-height: var(--preset-8-line);
+  --letter-spacing: var(--preset-8-letter-spacing);
+  --font-weight: var(--preset-8-weight);
+  --font-style: var(--preset-8-style);
+  --font-family: var(--preset-8-font);
+}
