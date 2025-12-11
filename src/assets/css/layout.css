@@ -1,0 +1,15 @@
+@import url("base.css");
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+nav {
+  margin-top: var(--spacing-600);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

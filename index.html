@@ -7,22 +7,92 @@
     <title>weather-app</title>
   </head>
   <body>
-    <nav>
-      <header>
-        <img src="./src/assets/images/logo.svg" alt="" srcset="" />
-        <label for="units"
-          ><img
-            src="./src/assets/images/icon-units.svg"
-            alt="icon of units"
-            srcset=""
-          />Units</label
-        >
-        <select name="units" id="units">
-          <option value="metric">°C</option>
-          <option value="imperial">°F</option>
-        </select>
-      </header>
-    </nav>
+    <div class="container">
+      <nav>
+        <header>
+          <img src="./src/assets/images/logo.svg" alt="" srcset="" />
+          <div class="dropdown-container">
+            <button class="unit">
+              <img
+                class="icon-unit"
+                src="./src/assets/images/icon-units.svg"
+                alt="Icon of a unit"
+                srcset=""
+              />
+              <p class="text-preset text-preset-7">Units</p>
+              <img
+                class="icon-dropdown"
+                src="src/assets/images/icon-dropdown.svg"
+                alt="arrow"
+                srcset=""
+              />
+            </button>
+            <div class="dropdown-unit">
+              <button class="text-preset text-preset-7 button-switch">
+                Switch to Imperial
+              </button>
+              <div class="unit-box">
+                <p class="unit-box-text">Temperature</p>
+                <ul class="unit-list">
+                  <li
+                    class="unit-list-item active"
+                    data-type="temperature"
+                    data-value="celsius"
+                  >
+                    Celsius (°C)
+                  </li>
+                  <li
+                    class="unit-list-item"
+                    data-type="temperature"
+                    data-value="fahrenheit"
+                  >
+                    Fahrenheit (°F)
+                  </li>
+                </ul>
+              </div>
+              <div class="unit-box">
+                <p class="unit-box-text">Wind Speed</p>
+                <ul class="unit-list">
+                  <li
+                    class="unit-list-item active"
+                    data-type="wind-speed"
+                    data-value="kmh"
+                  >
+                    km/h
+                  </li>
+                  <li
+                    class="unit-list-item"
+                    data-type="wind-speed"
+                    data-value="mph"
+                  >
+                    mph
+                  </li>
+                </ul>
+              </div>
+              <div class="unit-box">
+                <p class="unit-box-text">Precipitation</p>
+                <ul class="unit-list">
+                  <li
+                    class="unit-list-item active"
+                    data-type="precipitation"
+                    data-value="mm"
+                  >
+                    Millimeters (mm)
+                  </li>
+                  <li
+                    class="unit-list-item"
+                    data-type="precipitation"
+                    data-value="in"
+                  >
+                    Inches (in)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+      </nav>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
