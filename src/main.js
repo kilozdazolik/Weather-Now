@@ -2,6 +2,7 @@
 
 import "./style.css";
 import * as dom from "./js/dom.js";
+import * as api from "./js/api.js";
 
 addEventListener("DOMContentLoaded", () => {
   // --- DROPDOWN CONFIGURATION ---
@@ -58,4 +59,44 @@ addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // --- SEARCH FUNCTION ---
+  const searchInput = document.querySelector(".input-search");
+  if (searchInput) {
+    let debounceTimer;
+    searchInput.addEventListener("input", (e) => {
+      dom.renderSearchLoader();
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(async () => {
+        const searchValue = e.target.value;
+        if (searchValue.length >= 3) {
+          const locations = await api.getCoordinates(searchValue);
+
+          dom.renderSearchResults(locations);
+
+          if (locations.length > 0) {
+            dom.openSearchDropdown();
+          } else {
+            dom.closeSearchDropdown();
+          }
+        } else {
+          dom.closeSearchDropdown();
+        }
+      }, 300);
+    });
+  }
+
+  const searchList = document.querySelector(".dropdown-search-list");
+  if (searchList) {
+    searchList.addEventListener("click", (e) => {
+      const item = e.target.closest(".dropdown-search-list-item");
+      if (item) {
+        const name = item.dataset.name;
+        const lat = item.dataset.lat;
+        const lon = item.dataset.lon;
+      }
+      searchInput.value = item.textContent.trim();
+      dom.closeSearchDropdown();
+    });
+  }
 });

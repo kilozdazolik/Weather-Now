@@ -37,6 +37,38 @@ const sidebarDropdown = new DropdownController(
 );
 const searchDropdown = new DropdownController(".dropdown-search");
 
+// --- SEARCH CONTROLLER ----
+export function renderSearchResults(locations) {
+  const searchList = document.querySelector(".dropdown-search-list");
+  searchList.innerHTML = "";
+
+  if (!searchList) return;
+
+  locations.forEach((location) => {
+    const li = document.createElement("li");
+    li.className = "dropdown-search-list-item text-preset text-preset-7";
+    li.textContent = `${location.name}, ${location.country}`;
+
+    li.dataset.lat = location.lat;
+    li.dataset.lon = location.lon;
+    li.dataset.name = location.name;
+
+    searchList.appendChild(li);
+  });
+}
+
+export function renderSearchLoader() {
+  const searchList = document.querySelector(".dropdown-search-list");
+  if (!searchList) return;
+
+  searchList.innerHTML = `
+    <div class="loader-container">
+      <span class="loader"></span>
+      <p class="text-preset text-preset-7">Search in progress...</p>
+    </div>
+  `;
+}
+
 // --- EXPORTS ---
 export const toggleUnitsDropdown = () => unitsDropdown.toggle();
 export const closeUnitsDropdown = () => unitsDropdown.close();
