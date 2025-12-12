@@ -1,5 +1,78 @@
 "use strict";
 
+import { renderCurrentWeather } from "./components/currentWeather.js";
+import { renderHighlights } from "./components/highlights.js";
+import { renderDailyForecast } from "./components/dailyForecast.js";
+import { renderHourlyForecast } from "./components/hourlyForecast.js";
+
+let currentSidebarDay = null;
+
+export function updateDashboard(data, cityName, units = "metric") {
+  const currentContainer = document.querySelector(".current-weather-card");
+  renderCurrentWeather(
+    currentContainer,
+    { name: cityName, country: "" },
+    data.current,
+    units
+  );
+
+  const highlightsContainer = document.querySelector(".highlights-grid");
+  if (highlightsContainer) {
+    renderHighlights(highlightsContainer, data.current, units);
+  }
+
+  const dailyContainer = document.querySelector(".daily-grid");
+  if (dailyContainer) {
+    renderDailyForecast(dailyContainer, data.daily, units);
+  }
+
+  const hourlyContainer = document.querySelector(".sidebar-list");
+  const sidebarButton = document.querySelector(".sidebar-button");
+
+  if (currentSidebarDay === null) {
+    currentSidebarDay = new Date().toLocaleDateString("en-US", {
+      weekday: "long",
+    });
+  }
+
+  if (sidebarButton) {
+    const iconHTML = sidebarButton.querySelector("img")
+      ? sidebarButton.querySelector("img").outerHTML
+      : "";
+    sidebarButton.innerHTML = `${currentSidebarDay} ${iconHTML}`;
+  }
+
+  if (hourlyContainer) {
+    renderHourlyForecast(
+      hourlyContainer,
+      data.hourly,
+      units,
+      currentSidebarDay
+    );
+  }
+}
+
+export function updateSidebarDay(dayName, fullWeatherData, units) {
+  currentSidebarDay = dayName;
+
+  const hourlyContainer = document.querySelector(".sidebar-list");
+  const sidebarButton = document.querySelector(".sidebar-button");
+
+  if (sidebarButton) {
+    const iconHTML = sidebarButton.querySelector("img")
+      ? sidebarButton.querySelector("img").outerHTML
+      : "";
+    sidebarButton.innerHTML = `${dayName} ${iconHTML}`;
+  }
+
+  renderHourlyForecast(
+    hourlyContainer,
+    fullWeatherData.hourly,
+    units,
+    currentSidebarDay
+  );
+}
+
 // --- DROPDOWN CONTROLLER ---
 class DropdownController {
   constructor(dropdownSelector, buttonSelector) {
@@ -40,9 +113,9 @@ const searchDropdown = new DropdownController(".dropdown-search");
 // --- SEARCH CONTROLLER ----
 export function renderSearchResults(locations) {
   const searchList = document.querySelector(".dropdown-search-list");
-  searchList.innerHTML = "";
 
   if (!searchList) return;
+  searchList.innerHTML = "";
 
   locations.forEach((location) => {
     const li = document.createElement("li");

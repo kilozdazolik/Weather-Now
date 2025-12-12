@@ -78,7 +78,6 @@
   color: var(--neutral-0);
   border: none;
   border-radius: var(--radius-8);
-  cursor: pointer;
 }
 
 .unit:hover {
@@ -166,7 +165,11 @@
   list-style-type: none;
 }
 
-.unit-list-item,
+.unit-list-item {
+  padding: var(--spacing-100) var(--spacing-125);
+  border-radius: var(--radius-8);
+  list-style: none;
+}
 .dropdown-search-list-item,
 .dropdown-sidebar-list-item {
   padding: var(--spacing-100) var(--spacing-125);
@@ -242,7 +245,7 @@
    ================================= */
 
 .current-weather-card {
-  background-image: url("../images/bg-today-large.svg");
+  background-color: var(--neutral-800);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 250px;
