@@ -104,13 +104,34 @@
 
       <main>
         <section class="section-search">
-          <input
-            type="text"
-            name="search"
-            id="search"
-            class="text-preset text-preset-5-medium input-search"
-            placeholder="Search for a place..."
-          />
+          <div class="search-input-wrapper">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              class="text-preset text-preset-5-medium input-search"
+              placeholder="Search for a place..."
+            />
+
+            <div class="dropdown-search">
+              <ul class="dropdown-search-list">
+                <li
+                  class="dropdown-search-list-item text-preset text-preset-7 active"
+                >
+                  New York, USA
+                </li>
+                <li class="dropdown-search-list-item text-preset text-preset-7">
+                  London, UK
+                </li>
+                <li class="dropdown-search-list-item text-preset text-preset-7">
+                  Tokyo, Japan
+                </li>
+                <li class="dropdown-search-list-item text-preset text-preset-7">
+                  Paris, France
+                </li>
+              </ul>
+            </div>
+          </div>
           <button class="text-preset text-preset-5-medium button-search">
             Search
           </button>

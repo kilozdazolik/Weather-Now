@@ -3,32 +3,59 @@
 import "./style.css";
 import * as dom from "./js/dom.js";
 
-addEventListener("DOMContentLoaded", (e) => {
-  const btnToggleDropdown = document.querySelector(".unit");
-  btnToggleDropdown.addEventListener("click", () => {
-    dom.toggleUnitsDropdown();
+addEventListener("DOMContentLoaded", () => {
+  // --- DROPDOWN CONFIGURATION ---
+  const dropdowns = [
+    {
+      trigger: ".unit",
+      container: ".dropdown-container",
+      toggle: dom.toggleUnitsDropdown,
+      close: dom.closeUnitsDropdown,
+      isOpen: dom.isUnitsDropdownOpen,
+    },
+    {
+      trigger: ".sidebar-button",
+      container: ".sidebar-dropdown-container",
+      toggle: dom.toggleSidebarDropdown,
+      close: dom.closeSidebarDropdown,
+      isOpen: dom.isSidebarDropdownOpen,
+    },
+    {
+      trigger: ".input-search",
+      container: ".section-search",
+      toggle: dom.toggleSearchDropdown,
+      close: dom.closeSearchDropdown,
+      isOpen: dom.isSearchDropdownOpen,
+    },
+  ];
+
+  // --- CLOSE ALL EXCEPT ONE ---
+  const closeAllExcept = (currentIndex) => {
+    dropdowns.forEach((dropdown, index) => {
+      if (index !== currentIndex && dropdown.isOpen()) {
+        dropdown.close();
+      }
+    });
+  };
+
+  // --- ATTACH TRIGGER LISTENERS ---
+  dropdowns.forEach((dropdown, index) => {
+    const trigger = document.querySelector(dropdown.trigger);
+    if (trigger) {
+      trigger.addEventListener("click", () => {
+        closeAllExcept(index);
+        dropdown.toggle();
+      });
+    }
   });
 
-  const btnToggleSidebar = document.querySelector(".sidebar-button");
-  btnToggleSidebar.addEventListener("click", () => {
-    dom.toggleSidebarDropdown();
-  });
-
+  // --- GLOBAL CLICK OUTSIDE ---
   window.addEventListener("click", (e) => {
-    const clickedInsideUnit = e.target.closest(".dropdown-container");
-    if (!clickedInsideUnit) {
-      if (dom.isUnitsDropdownOpen()) {
-        dom.closeUnitsDropdown();
+    dropdowns.forEach((dropdown) => {
+      const clickedInside = e.target.closest(dropdown.container);
+      if (!clickedInside && dropdown.isOpen()) {
+        dropdown.close();
       }
-    }
-
-    const clickedInsideSidebar = e.target.closest(
-      ".sidebar-dropdown-container"
-    );
-    if (!clickedInsideSidebar) {
-      if (dom.isSidebarDropdownOpen()) {
-        dom.closeSidebarDropdown();
-      }
-    }
+    });
   });
 });

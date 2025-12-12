@@ -1,46 +1,74 @@
 @import url("base.css");
 
-/* Container */
-.dropdown-container {
+/* =================================
+   DROPDOWNS
+   ================================= */
+
+.dropdown-container,
+.sidebar-dropdown-container {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown */
-.dropdown-unit {
+.dropdown-unit,
+.dropdown-search,
+.dropdown-sidebar {
   display: flex;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-
   position: absolute;
-  top: 100%;
-  left: auto;
-  right: 0;
   z-index: 10;
   flex-direction: column;
   justify-content: center;
-  width: 21.4rem;
   margin-top: var(--spacing-100);
   padding: var(--spacing-100) var(--spacing-075);
   background-color: var(--neutral-800);
   border: 1px solid var(--neutral-600);
   border-radius: var(--radius-12);
   box-shadow: 0px 8px 16px 0px rgba(2, 1, 44, 0.32);
-  text-decoration: none;
-
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
 
-.dropdown-unit.show {
+.dropdown-unit,
+.dropdown-sidebar {
+  top: 100%;
+  left: auto;
+  right: 0;
+  width: 21.4rem;
+}
+
+.dropdown-search {
+  top: 100%;
+  left: 0;
+  right: auto;
+  width: 100%;
+  margin-top: var(--spacing-150);
+}
+
+.dropdown-unit.show,
+.dropdown-search.show,
+.dropdown-sidebar.show {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Unit */
+.icon-dropdown {
+  transition: transform 0.3s ease;
+}
+
+.unit.show .icon-dropdown,
+.sidebar-button.show .icon-dropdown {
+  transform: rotate(180deg);
+}
+
+/* =================================
+   BUTTONS
+   ================================= */
+
 .unit {
   display: flex;
   align-items: center;
@@ -50,54 +78,17 @@
   color: var(--neutral-0);
   border: none;
   border-radius: var(--radius-8);
-}
-
-.icon-dropdown {
-  transition: transform 0.3s ease;
-}
-
-.unit.show .icon-dropdown {
-  transform: rotate(180deg);
+  cursor: pointer;
 }
 
 .unit:hover {
   background-color: var(--neutral-700);
-  cursor: pointer;
 }
 
 .unit:active {
   background-color: var(--neutral-600);
-  cursor: pointer;
 }
 
-.unit-box:not(:last-child) {
-  border-bottom: 1px solid var(--neutral-600);
-  padding-bottom: var(--spacing-100);
-  margin-bottom: var(--spacing-100);
-}
-
-/* Unit list */
-.unit-box-text {
-  padding: var(--spacing-075) var(--spacing-100) 0 var(--spacing-100);
-  margin-bottom: var(--spacing-100);
-  color: var(--neutral-300);
-}
-
-.unit-list {
-  list-style-type: none;
-}
-
-.unit-list-item {
-  padding: var(--spacing-100) var(--spacing-125);
-  border-radius: var(--radius-8);
-  cursor: pointer;
-}
-
-.unit-list-item.active {
-  background-color: var(--neutral-700);
-}
-
-/* Button */
 .button-switch {
   padding: var(--spacing-125) var(--spacing-100);
   background-color: var(--primary-600);
@@ -117,13 +108,83 @@
   background-color: var(--neutral-700);
 }
 
-/* Primary Heading */
+.button-search {
+  background-color: var(--blue-500);
+  border: none;
+  padding: var(--spacing-200) var(--spacing-300);
+  border-radius: var(--radius-12);
+  color: var(--neutral-0);
+  cursor: pointer;
+  flex-shrink: 0;
+  width: auto;
+}
+
+.sidebar-button {
+  background-color: var(--neutral-600);
+  border: none;
+  padding: var(--spacing-100) var(--spacing-200);
+  border-radius: var(--radius-8);
+  color: var(--neutral-0);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.sidebar-button:hover {
+  background-color: var(--neutral-700);
+}
+
+.sidebar-button:active {
+  background-color: var(--neutral-900);
+}
+
+/* =================================
+   UNITS DROPDOWN
+   ================================= */
+
+.unit-box:not(:last-child) {
+  border-bottom: 1px solid var(--neutral-600);
+  padding-bottom: var(--spacing-100);
+  margin-bottom: var(--spacing-100);
+}
+
+.unit-box-text {
+  padding: var(--spacing-075) var(--spacing-100) 0 var(--spacing-100);
+  margin-bottom: var(--spacing-100);
+  color: var(--neutral-300);
+}
+
+.unit-list {
+  list-style-type: none;
+}
+
+.unit-list-item,
+.dropdown-search-list-item,
+.dropdown-sidebar-list-item {
+  padding: var(--spacing-100) var(--spacing-125);
+  border-radius: var(--radius-8);
+  cursor: pointer;
+  list-style: none;
+}
+
+.unit-list-item.active,
+.dropdown-sidebar-list-item.active {
+  background-color: var(--neutral-700);
+}
+
+.dropdown-search-list-item.active {
+  background-color: var(--neutral-700);
+  border: 1px solid var(--neutral-600);
+}
+
+/* =================================
+   SEARCH SECTION
+   ================================= */
+
 .primary-heading {
   text-align: center;
   margin: var(--spacing-800) 0;
 }
 
-/* Search bar */
 .section-search {
   display: flex;
   align-items: center;
@@ -134,22 +195,23 @@
   flex-direction: row;
 }
 
+.search-input-wrapper {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+}
+
 .input-search {
   flex-grow: 1;
-
   background-image: url("../images/icon-search.svg");
   background-color: var(--neutral-800);
   background-position: var(--spacing-200) center;
   background-repeat: no-repeat;
-
   padding: var(--spacing-200) var(--spacing-300);
   padding-left: var(--spacing-600);
-
   border: none;
   border-radius: var(--radius-12);
-
   color: var(--neutral-200);
-
   width: 100%;
 }
 
@@ -157,71 +219,36 @@
   color: var(--neutral-200);
 }
 
-.button-search {
-  background-color: var(--blue-500);
-  border: none;
-  padding: var(--spacing-200) var(--spacing-300);
-  border-radius: var(--radius-12);
-  color: var(--neutral-0);
-  cursor: pointer;
-  flex-shrink: 0;
-
-  width: auto;
-}
-
-@media (max-width: 868px) {
-  .section-search {
-    flex-direction: column;
-    width: 80%; /* Wider on medium screens */
-  }
-
-  .button-search {
-    width: 100%; /* Full width only in column layout */
-  }
-}
-
-@media (max-width: 600px) {
-  .section-search {
-    width: 90%; /* Even wider on small screens */
-  }
-}
-
-@media (max-width: 400px) {
-  .section-search {
-    width: 95%; /* Nearly full width on very small screens */
-  }
-}
-
-/* Card component */
+/* =================================
+   WEATHER CARDS
+   ================================= */
 
 .current-weather-card {
   background-image: url("../images/bg-today-large.svg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 250px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: var(--spacing-300) var(--spacing-1000);
   border-radius: var(--radius-20);
   margin: 0;
 }
 
-.left {
+.current-weather-card .left {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-200);
 }
 
-.weather-card_date {
-  opacity: 0.8;
-}
-
-.right {
+.current-weather-card .right {
   display: flex;
   align-items: center;
+}
+
+.weather-card_date {
+  opacity: 0.8;
 }
 
 .weather-card_icon {
@@ -229,19 +256,21 @@
   height: auto;
 }
 
-/* Highlights */
 .card {
   background-color: var(--neutral-800);
   padding: var(--spacing-250);
   border-radius: var(--radius-20);
   border: 2px solid var(--neutral-600);
 }
+
 .card-info {
   color: var(--neutral-200);
   margin-bottom: var(--spacing-300);
 }
 
-/* Weather Details */
+/* =================================
+   DAILY FORECAST
+   ================================= */
 
 .day-card {
   background-color: var(--neutral-800);
@@ -272,13 +301,15 @@
   color: var(--neutral-200);
 }
 
-/* Sidebar */
+/* =================================
+   SIDEBAR
+   ================================= */
+
 .sidebar {
   background-color: var(--neutral-800);
   padding: var(--spacing-300);
   border-radius: var(--radius-20);
   position: relative;
-
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -289,24 +320,6 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--spacing-200);
-}
-
-.sidebar-button {
-  background-color: var(--neutral-600);
-  border: none;
-  padding: var(--spacing-100) var(--spacing-200);
-  border-radius: var(--radius-8);
-  color: var(--neutral-0);
-  cursor: pointer;
-  transition: all 0.1s ease;
-}
-
-.sidebar-button:hover {
-  background-color: var(--neutral-700);
-}
-
-.sidebar-button:active {
-  background-color: var(--neutral-900);
 }
 
 .sidebar-list-item {
@@ -332,57 +345,57 @@
   height: auto;
 }
 
-/* Dropdown */
-.dropdown-sidebar {
-  display: flex;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
+/* =================================
+   RESPONSIVE DESIGN
+   ================================= */
 
-  position: absolute;
-  top: 100%;
-  left: auto;
-  right: 0;
-  z-index: 10;
-  flex-direction: column;
-  justify-content: center;
-  width: 21.4rem;
-  margin-top: var(--spacing-100);
-  padding: var(--spacing-100) var(--spacing-075);
-  background-color: var(--neutral-800);
-  border: 1px solid var(--neutral-600);
-  border-radius: var(--radius-12);
-  box-shadow: 0px 8px 16px 0px rgba(2, 1, 44, 0.32);
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+@media (max-width: 868px) {
+  .section-search {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .button-search {
+    width: 100%;
+  }
 }
 
-.dropdown-sidebar-list-item {
-  list-style: none;
-  padding: var(--spacing-100) var(--spacing-125);
-  border-radius: var(--radius-8);
+@media (max-width: 768px) {
+  .current-weather-card {
+    padding: var(--spacing-300) var(--spacing-400);
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-300);
+  }
+
+  .current-weather-card .left {
+    align-items: center;
+  }
+
+  .weather-card_icon {
+    width: 8rem;
+  }
 }
 
-.dropdown-sidebar-list-item.active {
-  background-color: var(--neutral-700);
+@media (max-width: 650px) {
+  .section-search {
+    width: 85%;
+  }
+
+  .current-weather-card {
+    min-height: auto;
+    padding: var(--spacing-300);
+  }
 }
 
-.sidebar-dropdown-container {
-  position: relative;
-  display: inline-block;
+@media (max-width: 600px) {
+  .section-search {
+    width: 90%;
+  }
 }
 
-.dropdown-sidebar.show {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.icon-dropdown {
-  transition: transform 0.3s ease;
-}
-
-.sidebar-button.show .icon-dropdown {
-  transform: rotate(180deg);
+@media (max-width: 400px) {
+  .section-search {
+    width: 95%;
+  }
 }
