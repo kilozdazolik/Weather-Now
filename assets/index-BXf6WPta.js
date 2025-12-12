@@ -11,7 +11,7 @@
     <div class="right">
       <img 
         class="weather-card_icon" 
-        src="./src/assets/images/icon-${r}.webp" 
+        src="./public/images/icon-${r}.webp" 
         alt="${t.description}" 
       />
       <p class="text-preset text-preset-1 weather-card_temperature">
@@ -50,7 +50,7 @@
       <div class="day-card">
         <p class="text-preset text-preset-6 day-card_day">${d}</p>
         <img
-          src="./images/icon-${u}.webp"
+          src="./public/images/icon-${u}.webp"
           alt="weather icon"
           class="day-card_icon"
         />
@@ -68,7 +68,7 @@
         <div class="sidebar-list-item_left">
           <img
             class="sidebar-list-item_icon"
-            src="./images/icon-${_(u.code)}.webp"
+            src="./public/images/icon-${_(u.code)}.webp"
             alt="weather icon"
           />
           <p class="text-preset text-preset-5-medium">${a}</p>
