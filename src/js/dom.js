@@ -73,7 +73,6 @@ export function updateSidebarDay(dayName, fullWeatherData, units) {
   );
 }
 
-// --- DROPDOWN CONTROLLER ---
 class DropdownController {
   constructor(dropdownSelector, buttonSelector) {
     this.dropdown = document.querySelector(dropdownSelector);
@@ -102,7 +101,6 @@ class DropdownController {
   }
 }
 
-// --- DROPDOWN INSTANCES ---
 const unitsDropdown = new DropdownController(".dropdown-unit", ".unit");
 const sidebarDropdown = new DropdownController(
   ".dropdown-sidebar",
@@ -110,7 +108,6 @@ const sidebarDropdown = new DropdownController(
 );
 const searchDropdown = new DropdownController(".dropdown-search");
 
-// --- SEARCH CONTROLLER ----
 export function renderSearchResults(locations) {
   const searchList = document.querySelector(".dropdown-search-list");
 
@@ -142,7 +139,6 @@ export function renderSearchLoader() {
   `;
 }
 
-// --- EXPORTS ---
 export const toggleUnitsDropdown = () => unitsDropdown.toggle();
 export const closeUnitsDropdown = () => unitsDropdown.close();
 export const isUnitsDropdownOpen = () => unitsDropdown.isOpen();

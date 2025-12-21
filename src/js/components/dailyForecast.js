@@ -16,7 +16,7 @@ export function renderDailyForecast(container, dailyData, units) {
       <div class="day-card">
         <p class="text-preset text-preset-6 day-card_day">${dayName}</p>
         <img
-          src="./src/assets/images/icon-${iconName}.webp"
+          src="./images/icon-${iconName}.webp"
           alt="weather icon"
           class="day-card_icon"
         />

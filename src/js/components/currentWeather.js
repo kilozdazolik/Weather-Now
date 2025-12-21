@@ -15,7 +15,7 @@ export function renderCurrentWeather(container, location, current, units) {
   });
 
   const bgSize = window.innerWidth >= 768 ? "large" : "small";
-  container.style.backgroundImage = `url(./src/assets/images/bg-today-${bgSize}.svg)`;
+  container.style.backgroundImage = `url(./images/bg-today-${bgSize}.svg)`;
 
   container.innerHTML = `
     <div class="left">
@@ -30,7 +30,7 @@ export function renderCurrentWeather(container, location, current, units) {
     <div class="right">
       <img 
         class="weather-card_icon" 
-        src="./src/assets/images/icon-${iconName}.webp" 
+        src="./images/icon-${iconName}.webp" 
         alt="${current.description}" 
       />
       <p class="text-preset text-preset-1 weather-card_temperature">

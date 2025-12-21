@@ -1,5 +1,3 @@
-// src/js/components/HourlyForecast.js
-
 import { getIconName } from "../utils.js";
 
 export function renderHourlyForecast(
@@ -41,7 +39,7 @@ export function renderHourlyForecast(
         <div class="sidebar-list-item_left">
           <img
             class="sidebar-list-item_icon"
-            src="./src/assets/images/icon-${iconName}.webp"
+            src="./images/icon-${iconName}.webp"
             alt="weather icon"
           />
           <p class="text-preset text-preset-5-medium">${timeString}</p>

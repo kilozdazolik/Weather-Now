@@ -223,7 +223,7 @@
 
 .input-search {
   flex-grow: 1;
-  background-image: url("../images/icon-search.svg");
+  background-image: url("../../public/images/icon-search.svg");
   background-color: var(--neutral-800);
   background-position: var(--spacing-200) center;
   background-repeat: no-repeat;
